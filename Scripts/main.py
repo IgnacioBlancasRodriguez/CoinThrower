@@ -7,10 +7,12 @@ def CoinThrow(num_times, arch_num):
     coin2 = 0
     coin3 = 0
     coin4 = 0
-    coin1_fi = 0
-    coin2_fi = 0
-    coin3_fi = 0
-    coin4_fi = 0
+    x0_fi = 0
+    x1_fi = 0
+    x2_fi = 0
+    x3_fi = 0
+    x4_fi = 0
+    num_fi = 0
     result = []
     data = []
     count = []
@@ -48,29 +50,62 @@ def CoinThrow(num_times, arch_num):
         coin2_fi = 0
         coin3_fi = 0
         coin4_fi = 0
+        x0_fi = 0
+        x1_fi = 0
+        x2_fi = 0
+        x3_fi = 0
+        x4_fi = 0
+        x0_fi_sum = 0
+        x1_fi_sum = 0
+        x2_fi_sum = 0
+        x3_fi_sum = 0
+        x4_fi_sum = 0
         for k in range(0, len(data[i]), 4):
             count = []
+            num_fi = 0
             for n in range(0,4):
-                if n == 0:
-                    data1 = int(data[i][k])
-                    coin1_fi += data1
-                elif n == 1:
-                    data2 = int(data[i][k+1])
-                    coin2_fi += data2
-                elif n == 2:
-                    data3 = int(data[i][k+2])
-                    coin3_fi += data3
-                elif n == 3:
-                    data4 = int(data[i][k+3])
-                    coin4_fi += data4
-            count.append(coin1_fi)
-            count.append(coin2_fi)
-            count.append(coin3_fi)
-            count.append(coin4_fi)
+                if int(data[i][k+n]) == 0:
+                    num_fi += int(data[i][k+n])
+                elif int(data[i][k+n]) == 1:
+                    num_fi += int(data[i][k+n])
+                
+            
+            if num_fi == 0:
+                x0_fi += 1
+            elif num_fi == 1:
+                x1_fi += 1
+            elif num_fi == 2:
+                x2_fi += 1
+            elif num_fi == 3:
+                x3_fi += 1
+            elif num_fi == 4:
+                x4_fi += 1
+
+            count.append(x0_fi)
+            count.append(x1_fi)
+            count.append(x2_fi)
+            count.append(x3_fi)
+            count.append(x4_fi)
         total_count.append(count)
+        for i in range(0, len(total_count)):
+            for k in range(0, len(total_count[i]),5):
+                for n in range(0,5):
+                    if n == 0:
+                        x0_fi_sum += int(total_count[i][k+n])
+                    if n == 1:
+                        x1_fi_sum += int(total_count[i][k+n])
+                    if n == 2:
+                        x2_fi_sum += int(total_count[i][k+n])
+                    if n == 3:
+                        x3_fi_sum += int(total_count[i][k+n])
+                    if n == 4:
+                        x4_fi_sum += int(total_count[i][k+n])
+
     print(data)
     print(data[0][2])
     print(total_count)
+    print(num_fi)
+    print(x1_fi_sum)
 
 
 
