@@ -12,6 +12,11 @@ def CoinThrow(num_times, arch_num):
     x2_fi = 0
     x3_fi = 0
     x4_fi = 0
+    x0_fi_sum = 0
+    x1_fi_sum = 0
+    x2_fi_sum = 0
+    x3_fi_sum = 0
+    x4_fi_sum = 0
     num_fi = 0
     result = []
     data = []
@@ -55,11 +60,6 @@ def CoinThrow(num_times, arch_num):
         x2_fi = 0
         x3_fi = 0
         x4_fi = 0
-        x0_fi_sum = 0
-        x1_fi_sum = 0
-        x2_fi_sum = 0
-        x3_fi_sum = 0
-        x4_fi_sum = 0
         for k in range(0, len(data[i]), 4):
             count = []
             num_fi = 0
@@ -88,24 +88,34 @@ def CoinThrow(num_times, arch_num):
             count.append(x4_fi)
         total_count.append(count)
         for i in range(0, len(total_count)):
-            for k in range(0, len(total_count[i]),5):
-                for n in range(0,5):
-                    if n == 0:
-                        x0_fi_sum += int(total_count[i][k+n])
-                    if n == 1:
-                        x1_fi_sum += int(total_count[i][k+n])
-                    if n == 2:
-                        x2_fi_sum += int(total_count[i][k+n])
-                    if n == 3:
-                        x3_fi_sum += int(total_count[i][k+n])
-                    if n == 4:
-                        x4_fi_sum += int(total_count[i][k+n])
+            for n in range(0,5, 5):
+                if n == 0:
+                    print("x")
+                    x0_fi_sum += int(total_count[i][n])
+                elif n == 1:
+                    print("n")
+                    x1_fi_sum += int(total_count[i][n])
+                elif n == 2:
+                    x2_fi_sum += int(total_count[i][n])
+                elif n == 3:
+                    x3_fi_sum += int(total_count[i][n])
+                elif n == 4:
+                    x4_fi_sum += int(total_count[i][n])
+
+    print("Fi "+ str(x1_fi_sum))
+    x0_fi_sum_0 = x0_fi_sum / arch_num
+    x1_fi_sum_1 = x1_fi_sum / arch_num
+    x2_fi_sum_2 = x2_fi_sum / arch_num
+    x3_fi_sum_3 = x3_fi_sum / arch_num
+    x4_fi_sum_4 = x4_fi_sum / arch_num
 
     print(data)
     print(data[0][2])
     print(total_count)
     print(num_fi)
-    print(x1_fi_sum)
+    print(x1_fi)
+    print("final "+ str(x1_fi_sum_1))
+
 
 
 
