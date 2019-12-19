@@ -1,2 +1,2 @@
 # CoinThrower
-This is a repo that simulates throwing 4 coins simultaneous.
+This is a repo that simulates throwing some coins simultaneously.
